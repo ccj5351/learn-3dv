@@ -18,7 +18,8 @@ conda activate 3dvGS
 #pip install torch==2.4.0 torchvision==0.19.0 --index-url https://download.pytorch.org/whl/cu124
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu126
-pip install -r requirements.txt
+pip3 install -r requirements.txt
+conda install -c conda-forge jupyterlab
 ```
 
 Pay attention to the "git+https://github.com/dcharatan/diff-gaussian-rasterization-modified" lib, you might fail due to CUDA version and G++/GCC version. Please check the [CUDA-GCC compatibility table](https://stackoverflow.com/questions/6622454/cuda-incompatible-with-my-gcc-version).
