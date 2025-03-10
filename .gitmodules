@@ -1,0 +1,12 @@
+[submodule "third_parties/gaussian-splatting"]
+	path = third_parties/gaussian-splatting
+	url = git@github.com:ccj5351/gaussian-splatting.git
+[submodule "third_parties/depthsplat"]
+	path = third_parties/depthsplat
+	url = git@github.com:ccj5351/depthsplat.git
+[submodule "third_parties/pixelSplat"]
+	path = third_parties/pixelSplat
+	url = git@github.com:ccj5351/pixelsplat.git
+[submodule "third_parties/mvsplat"]
+	path = third_parties/mvsplat
+	url = git@github.com:ccj5351/mvsplat.git
