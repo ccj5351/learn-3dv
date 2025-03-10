@@ -10,3 +10,6 @@
 [submodule "third_parties/mvsplat"]
 	path = third_parties/mvsplat
 	url = git@github.com:ccj5351/mvsplat.git
+[submodule "third_parties/diff-gaussian-rasterization-modified"]
+	path = third_parties/diff-gaussian-rasterization-modified
+	url = https://github.com/dcharatan/diff-gaussian-rasterization-modified.git
