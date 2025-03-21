@@ -189,7 +189,7 @@ A 3D gaussian splat consists of `x, y, and z` coordinates as well as the associa
 
 Therefore, the authors use a decomposition of the covariance matrix that will always produce `positive semi definite` covariance matrices. Given a scaling matrix $S$ and rotation matrix $R$, we can find the corresponding covariance matrix $\Sigma$:
 
-$$\Sigma = R*S*S^{T}*R^{T}$$
+$$\Sigma = RSS^TR^T$$
 
 According to the paper:
 > To allow independent optimization of both factors, we store them separately: a 3D vector $s$ for scaling and a quaternion $q$ to represent rotation. These can be trivially converted to their respective matrices and combined, making sure to normalize $q$ to obtain a valid unit quaternion.
