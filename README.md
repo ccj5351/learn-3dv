@@ -65,3 +65,9 @@ After this G++/GCC version adjustment, the `pip install git+https://github.com/d
 ### Neural Radiance Fields - NeRF 
 
 ### 3D Gaussian Splatting - 3DGS
+
+- See repo: [3dgs_render_python](https://github.com/SY-007-Research/3dgs_render_python)
+```bash
+git submodule add https://github.com/SY-007-Research/3dgs_render_python.git third_parties/3dgs_render_python
+git submodule update --recursive
+```

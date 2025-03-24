@@ -192,10 +192,9 @@ Therefore, the authors use a decomposition of the covariance matrix that will al
 $$\Sigma = RSS^TR^T$$
 
 According to the paper:
-> To allow independent optimization of both factors, we store them separately: a 3D vector $s$ for scaling and a quaternion $q$ to represent rotation. These can be trivially converted to their respective matrices and combined, making sure to normalize $q$ to obtain a valid unit quaternion.
+> To allow independent optimization of both factors, we store them separately: a 3D vector $s$ for scaling and a quaternion $q$ to represent rotation. These can be trivially converted to their respective matrices and combined, making sure to normalize $q$ to obtain a valid unit quaternion. Note one must normalize the quaternion vector before converting to a rotation matrix in order to obtain a valid rotation matrix. 
 
-
-Note one must normalize the quaternion vector before converting to a rotation matrix in order to obtain a valid rotation matrix. Therefore in our implementation a gaussian point consists of the following parameters, 
+Therefore in our implementation a gaussian point consists of the following parameters, 
 - coordinates (3x1 vector), 
 - quaternions (4x1 vector), 
 - scale (3x1 vector) and 
@@ -264,7 +263,7 @@ def compute_2d_covariance(
 ```
 
 
-First off, `tan_fovY` and `tan_fovX` are the tangents of half the field of view angles. We use these values to clamp our projections, preventing any wild, off-screen projections from affecting our render. One can derive the Jacobian from the transformation from 3D to 2D as given with our initial forward transform introduced above, but I have saved you the trouble and show the expected derivation above. Lastly, if you remember we transposed our rotation matrix above in order to accommodate a reshuffling of terms and therefore we transpose back on the penultimate line before returning the final covariance calculation. As the EWA splatting paper notes, we can ignore the third row and column seeing as we only care about the 2D image plane. You might wonder, why couldn’t we do that from the start? Well, the covariance matrix parameters will vary depending on which angle you are viewing it from as in most cases it will not be a perfect sphere! Now that we’ve transformed to the correct viewpoint, the covariance z-axis info is useless and can be discarded.
+First of all, `tan_fovY` and `tan_fovX` are the tangents of half the field of view angles. We use these values to clamp our projections, preventing any wild, off-screen projections from affecting our render. One can derive the Jacobian from the transformation from 3D to 2D as given with our initial forward transform introduced above, but I have saved you the trouble and show the expected derivation above. Lastly, if you remember we transposed our rotation matrix above in order to accommodate a reshuffling of terms and therefore we transpose back on the penultimate line before returning the final covariance calculation. As the EWA splatting paper notes, we can ignore the third row and column seeing as we only care about the 2D image plane. You might wonder, why couldn’t we do that from the start? Well, the covariance matrix parameters will vary depending on which angle you are viewing it from as in most cases it will not be a perfect sphere! Now that we’ve transformed to the correct viewpoint, the covariance z-axis info is useless and can be discarded.
 
 Given that we have the 2D covariance matrix we are close to being able to calculate the impact each gaussian has on any random pixel in our image, we just need to find the inverted covariance matrix. Recall again from linear algebra that to find the inverse of a 2x2 matrix you only need to find the determinant and then do some reshuffling of terms. Here is some code to help guide you through that process as well.
 
