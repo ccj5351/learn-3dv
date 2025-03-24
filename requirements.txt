@@ -21,6 +21,7 @@ imageio
 # make sure your cuda version and g++, gcc version matched
 # see: https://stackoverflow.com/questions/6622454/cuda-incompatible-with-my-gcc-version
 # CUDA version + max supported GCC version
+# e.g., cuda 12.1, 12.2, 12.3, with GCC <= 12.2
 # e.g., cuda 12.4, 12.5, 12.6, with GCC <= 13.2
 # e.g., cuda 12.8,  with GCC <= 14
 git+https://github.com/dcharatan/diff-gaussian-rasterization-modified

@@ -15,9 +15,13 @@ conda create -y -n 3dvGS python=3.10
 conda activate 3dvGS
 
 # Pytorch 2.6.0, CUDA 12.6
-#pip install torch==2.4.0 torchvision==0.19.0 --index-url https://download.pytorch.org/whl/cu124
+# install the latest version
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu126
+# Or install previous version
+#pip install torch==2.4.0 torchvision==0.19.0 --index-url https://download.pytorch.org/whl/cu124
+#pip3 install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+#pip3 install -U xformers==0.0.29.post1 --index-url https://download.pytorch.org/whl/cu121
 pip3 install -r requirements.txt
 conda install -c conda-forge jupyterlab
 ```
@@ -30,6 +34,7 @@ Pay attention to the "git+https://github.com/dcharatan/diff-gaussian-rasterizati
 # make sure your cuda version and g++, gcc version matched
 # see: https://stackoverflow.com/questions/6622454/cuda-incompatible-with-my-gcc-version
 # CUDA version + max supported GCC version
+# e.g., cuda 12.1, 12.2, 12.3, with GCC <= 12.2
 # e.g., cuda 12.4, 12.5, 12.6, with GCC <= 13.2
 # e.g., cuda 12.8,  with GCC <= 14
 git+https://github.com/dcharatan/diff-gaussian-rasterization-modified
@@ -65,3 +70,15 @@ After this G++/GCC version adjustment, the `pip install git+https://github.com/d
 ### Neural Radiance Fields - NeRF 
 
 ### 3D Gaussian Splatting - 3DGS
+
+- Add forked 3DGS repo to [third_parties/gaussian-splatting](third_parties/gaussian-splatting).
+```bash
+mkdir third_parties
+git submodule add git@github.com:ccj5351/gaussian-splatting.git third_parties/gaussian-splatting
+git submodule update --init --recursive
+```
+- Add forked depthsplat repo to [third_parties/depthsplat](third_parties/depthsplat).
+```bash
+git submodule add git@github.com:ccj5351/depthsplat.git third_parties/depthsplat
+git submodule update --init --recursive
+```
