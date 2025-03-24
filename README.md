@@ -82,3 +82,10 @@ git submodule update --init --recursive
 git submodule add git@github.com:ccj5351/depthsplat.git third_parties/depthsplat
 git submodule update --init --recursive
 ```
+
+- See repo: [3dgs_render_python](https://github.com/SY-007-Research/3dgs_render_python)
+
+```bash
+git submodule add https://github.com/SY-007-Research/3dgs_render_python.git third_parties/3dgs_render_python
+git submodule update --recursive
+```

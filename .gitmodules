@@ -13,3 +13,6 @@
 [submodule "third_parties/diff-gaussian-rasterization-modified"]
 	path = third_parties/diff-gaussian-rasterization-modified
 	url = https://github.com/dcharatan/diff-gaussian-rasterization-modified.git
+[submodule "third_parties/3dgs_render_python"]
+	path = third_parties/3dgs_render_python
+	url = https://github.com/SY-007-Research/3dgs_render_python.git
